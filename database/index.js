@@ -1,10 +1,10 @@
 const { Sequelize } = require('sequelize')
 
 // Connect to PostgreSQL creating a new sequelize instance
-const sequelize = new Sequelize("CONFLICTS", "vicente", "student2024", {
-    host: "127.0.0.1",
-    dialect: "mysql",
-    port: "3306",
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+    host: process.env.DB_HOST,
+    dialect: process.env.DIALECT,
+    port: process.env.DB_PORT,
     logging: false,
 })
 

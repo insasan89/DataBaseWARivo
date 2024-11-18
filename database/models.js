@@ -1,7 +1,7 @@
-const Actor = require('../api/models/actor')
-const Address = require('../api/models/address.js')
-const Country = require('../api/models/country')
-const Movie = require('../api/models/movie')
+const Organization_a= require('../api/models/organization_a')
+const Organization_b = require('../api/models/organization_b')
+const Conflict = require('../api/models/conflict')
+const Location = require('../api/models/location')
 
 
 function addRelationsToModels() {

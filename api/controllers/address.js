@@ -1,4 +1,4 @@
-const Address = require('../models/address.js')
+const Address = require('../models/organization_b.js')
 const { Op } = require('sequelize')
 
 async function getAllAddresses(req, res) {

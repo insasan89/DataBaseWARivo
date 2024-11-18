@@ -1,19 +1,15 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../../database')
 
-const Actor = sequelize.define(
-    'actor',
+const Organization_a = sequelize.define(
+    'organization_a',
     {
-        firstName: {
+        org_a_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        LastName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        }
     },
     { timestamps: false }
 )
 
-module.exports = Actor
+module.exports = Organization_a

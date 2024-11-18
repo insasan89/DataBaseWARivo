@@ -1,4 +1,4 @@
-const Country = require('../models/country')
+const Country = require('../models/conflict')
 const { Op } = require('sequelize')
 
 async function getAllCountries(req, res) {

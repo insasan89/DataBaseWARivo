@@ -1,5 +1,5 @@
 const Actor = require('../models/actor')
-const Movie = require('../models/movie')
+const Movie = require('../models/location')
 const { Op } = require('sequelize')
 
 async function getAllActors(req, res) {

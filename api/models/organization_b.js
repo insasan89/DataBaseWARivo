@@ -1,18 +1,15 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../../database')
 
-const Country = sequelize.define(
-    'country',
+const Organization_b = sequelize.define(
+    'organization_b',
     {
-        name: {
+        org_b_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        population: {
-            type: DataTypes.INTEGER
-        }
     },
     { timestamps: false }
 )
 
-module.exports = Country
+module.exports = Organization_b
