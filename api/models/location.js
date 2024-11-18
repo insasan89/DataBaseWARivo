@@ -4,14 +4,11 @@ const { sequelize } = require('../../database')
 const Location = sequelize.define(
     'location',
     {
-       conflict_id: {
-            type: DataTypes.INTEGER,
-        },
         latitude: {
-            type: DataTypes.POINT,
+            type: DataTypes.STRING,
         },
         longitude: {
-            type: DataTypes.POINT,
+            type: DataTypes.STRING,
         }
         //falta foreign key
     },

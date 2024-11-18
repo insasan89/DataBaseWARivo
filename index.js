@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { checkConnection, syncModels } = require('./database/index')
 const addRelationsToModels = require('./database/models')
+const User = require("./api/models/user.model");
 
 const express = require('express')
 const cors = require('cors')

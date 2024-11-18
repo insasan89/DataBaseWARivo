@@ -1,19 +1,21 @@
-const Organization_a= require('../api/models/organization_a')
-const Organization_b = require('../api/models/organization_b')
+const OrgA = require('../api/models/organization_a')
+const OrgB = require('../api/models/organization_b')
 const Conflict = require('../api/models/conflict')
 const Location = require('../api/models/location')
+const User = require('../api/models/user.model')
+const Dyad = require('../api/models/dyad')
 
 
 function addRelationsToModels() {
     try {
-        User.hasOne(Address, { foreignKey: 'userId' })
-        Address.belongsTo(User)
+        Conflict.hasOne(Location)
+        Location.belongsTo(Conflict)
 
-        Country.hasMany(User, { foreignKey: 'countryId' })
-        User.belongsTo(Country)
+        OrgA.belongsToMany(OrgB, { through: Dyad, timestamps: false })
+        OrgB.belongsToMany(OrgA, { through: Dyad, timestamps: false })
 
-        Actor.belongsToMany(Movie, { through: 'Actor_Movie', timestamps: false })
-        Movie.belongsToMany(Actor, { through: 'Actor_Movie', timestamps: false })
+        Conflict.hasMany(Dyad)
+        Dyad.belongsTo(Conflict)
 
         console.log('Relations added to all models')
     } catch (error) {

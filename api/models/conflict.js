@@ -4,9 +4,6 @@ const { sequelize } = require('../../database')
 const Conflict = sequelize.define(
     'conflict',
     {
-        dyad_id: {
-            type: DataTypes.INTEGER,
-        },
         active: {
             type: DataTypes.BOOLEAN,//Esta bien?
         },
