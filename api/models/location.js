@@ -9,8 +9,11 @@ const Location = sequelize.define(
         },
         longitude: {
             type: DataTypes.STRING,
-        }
-        //falta foreign key
+        },
+        conflict_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
     },
     { timestamps: false }
 )

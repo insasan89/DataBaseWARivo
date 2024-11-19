@@ -10,7 +10,7 @@ const morgan = require('morgan')
 async function checkAndSyncPostgreSQL() {
     await checkConnection()
     addRelationsToModels()
-    await syncModels()
+    await syncModels("force")
 }
 
 function initializeAndListenWithExpress() {
@@ -19,7 +19,6 @@ function initializeAndListenWithExpress() {
         .use(morgan('dev'))
         .use(express.json())
         .use('/api', require('./api/routes'))
-
         .listen(3002, () => {
             console.log(`> Listening on port: ${3002}`)
         })
@@ -28,6 +27,7 @@ function initializeAndListenWithExpress() {
 async function startAPI() {
     await checkAndSyncPostgreSQL()
     initializeAndListenWithExpress()
+    injectionSQL()
 }
 
 startAPI()
