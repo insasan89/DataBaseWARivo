@@ -8,8 +8,8 @@ const Dyad = require('../api/models/dyad')
 
 function addRelationsToModels() {
     try {
-        Conflict.hasOne(Location)
-        Location.belongsTo(Conflict)
+        Conflict.hasOne(Location, { foreignKey: 'conflict_id' })
+        Location.belongsTo(Conflict, { foreignKey: 'conflict_id' })
 
         OrgA.belongsToMany(OrgB, { through: Dyad, timestamps: false })
         OrgB.belongsToMany(OrgA, { through: Dyad, timestamps: false })

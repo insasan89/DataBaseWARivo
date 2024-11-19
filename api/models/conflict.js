@@ -4,8 +4,12 @@ const { sequelize } = require('../../database')
 const Conflict = sequelize.define(
     'conflict',
     {
+        conflict_id: {
+            type: DataTypes.INTEGER, 
+            allowNull: false, 
+        },
         active: {
-            type: DataTypes.BOOLEAN,//Esta bien?
+            type: DataTypes.BOOLEAN,
         },
         type_of_conflict: {
             type: DataTypes.INTEGER,
@@ -16,11 +20,10 @@ const Conflict = sequelize.define(
         deaths_b: {
             type: DataTypes.INTEGER,
         },
-        contry_conflict: {
+        country_conflict: {
             type: DataTypes.STRING,
             allowNull: false,
         }
-         //falta la foreign key
     },
     { timestamps: false }
 )

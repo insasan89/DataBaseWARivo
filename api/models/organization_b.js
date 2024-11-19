@@ -4,6 +4,10 @@ const { sequelize } = require('../../database')
 const Organization_b = sequelize.define(
     'organization_b',
     {
+        org_b_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
         org_b_name: {
             type: DataTypes.STRING,
             allowNull: false,

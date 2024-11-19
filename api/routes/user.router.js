@@ -11,7 +11,7 @@ const {
 const { checkAuth, checkAdmin } = require("../middleware/auth");
 
 router.get("/", checkAuth, checkAdmin, getAllUsers);
-router.get("/:id", checkAuth, checkAdmin, getOneUser);
+router.get("/:id", getOneUser);
 
 router.post("/", createUser);
 

@@ -2,7 +2,7 @@ require('dotenv').config()
 const { checkConnection, syncModels } = require('./database/index')
 const addRelationsToModels = require('./database/models')
 const User = require("./api/models/user.model");
-
+const injectionSQL = require("./api/utils/utils")
 const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
@@ -10,7 +10,7 @@ const morgan = require('morgan')
 async function checkAndSyncPostgreSQL() {
     await checkConnection()
     addRelationsToModels()
-    await syncModels('alter')
+    await syncModels()
 }
 
 function initializeAndListenWithExpress() {
@@ -20,8 +20,8 @@ function initializeAndListenWithExpress() {
         .use(express.json())
         .use('/api', require('./api/routes'))
 
-        .listen(3000, () => {
-            console.log(`> Listening on port: ${3000}`)
+        .listen(3002, () => {
+            console.log(`> Listening on port: ${3002}`)
         })
 }
 
