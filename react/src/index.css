@@ -1,0 +1,233 @@
+:root {
+   font-family: "Sintony", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #F40C3F;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gasoek-one-regular {
+  font-family: "Gasoek One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sintony-regular {
+  font-family: "Sintony", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sintony-bold {
+  font-family: "Sintony", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0 24px;
+  min-height: 100vh;
+}
+
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+font-family: "Gasoek One", sans-serif;
+text-transform:uppercase;
+letter-spacing: 2pt;
+z-index: 2;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #0d1318;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+
+
+
+
+
+canvas {
+  display: block;
+  z-index: -1;
+}
+
+.headerWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerWrapper h2 {
+font-family: "Gasoek One", sans-serif;
+color: #1a1a1a;
+
+}
+
+.nav {
+  display: flex;
+  gap: 36px;
+align-items: center;
+margin-top: 0;
+padding-bottom: 0;
+}
+
+.nav h3 {
+  font-family: "Gasoek One", sans-serif;
+text-transform:uppercase;
+letter-spacing: 2pt;
+color: #1a1a1a;
+}
+
+.interactive {
+top: 0;
+z-index: -1;
+}
+
+h1 {
+  max-width: 800px;
+  font-size: 3.2em;
+  line-height: 1.1;
+  font-family: "Gasoek One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 72pt;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+p {
+ font-family: "Sintony", sans-serif;
+ max-width: 900px;
+ color: #1a1a1a;
+}
+
+.footerWrapper {
+  left: 0;
+  bottom: -200px;
+  position: absolute;
+  width: 100vw;
+  height: 200px;
+  background-color: #1a1a1a;
+}
+
+.landingWrapper {
+  margin-left: 10em;
+  margin-top: 130px;
+  z-index: 2;
+}
+
+.landingWrapper h1 {
+  margin-bottom: 0;
+}
+
+.primaryCTA {
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: auto;
+  visibility: visible;
+  z-index: 2; /* Ensure it's above other elements */
+}
+
+.mapWrapper{
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  gap: 8px;
+}
+
+.filter {
+  background-color: white;
+  color: #1a1a1a;
+  min-width: 250px;
+  padding: 16px;
+}
+
+.mapWrapper {
+  display: flex;
+  height: 90vh;
+}
+
+.filter {
+  width: 300px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+}
+
+.filter label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.filter select,
+.filter input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.dbBest {
+  width: 93%;
+}
+
+.filter button {
+  width: 100%;
+  padding: 10px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filter button:hover {
+  background-color: #333;
+}
+
+
+
+
+
+
