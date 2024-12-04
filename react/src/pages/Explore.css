@@ -1,26 +1,74 @@
+.bodyExplore {
+  width: 100vw;
+  height: 100%;
+  background-color: #1a1a1a;
+  padding: 24px;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.bodyExplore h1,p{
+  color: rgb(243, 243, 243);
+}
+
+.exploreWrapper{
+  padding: 50px;
+}
+
+.expTitle {
+    display: flex;
+    max-width: 100%;
+    justify-content: center;
+}
+
+.expNumber{
+    margin-top: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.expNumber p{
+width: 300px;
+}
+
+.expNumber h1{
+   font-family: 'Sintony';
+}
+
+.pieChart{
+    margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 160px;
+    font-family: 'Sintony';
+    font-size: 24px;
+}
+
+
 .ConteinerExplore{
     display:flex;
     justify-content: space-between;
     align-items: center;
 }
-.conteinerCenter{
- 
-   
-}
+
+
 .Refugees{
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
-.PieChart{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
+
+.LinhCahrt{
+    background-color: #fff;
 }
+
 .LineChartComponent{
-    display: flex;
+ 
     justify-content: space-between;
     align-items: center;
     
@@ -31,8 +79,7 @@
 }
 
 .chart-container {
-    width: 80%;
-    max-width: 800px;
+    width: 100%;
     position: relative;
     padding: 20px;
     background: #fff;

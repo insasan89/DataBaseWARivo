@@ -12,11 +12,10 @@ const PieChartComponent = () => {
       <PieChart
         series={[
           {
-            startAngle: -90,
-            endAngle: 90,
             data,
           },
         ]}
+        
         height={400}
       />
     </div>

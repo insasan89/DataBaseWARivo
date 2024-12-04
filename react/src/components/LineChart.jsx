@@ -52,12 +52,14 @@ export default function LineChartComponent() {
     <LineChart
       width={800} // Ajusta el tamaño del gráfico
       height={400} // Ajusta el tamaño del gráfico
-      series={[
-        { data: uData, label: "Deaths by years" },
-        
-      ]}
+      series={[{ data: uData, label: "Deaths by years" }]}
       xAxis={[{ scaleType: "point", data: xLabels }]} // Eje X con los años
-      yAxis={[{  scaleType: "linear" }]} // Eje Y con escala lineal
+      yAxis={[{ scaleType: "linear" }]}
+      slotProps={{
+        legend: {
+          sx: { color: "#333" }, // Color y estilo de la leyenda
+        },
+      }} // Eje Y con escala lineal
     />
   );
 }

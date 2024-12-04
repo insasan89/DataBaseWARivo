@@ -156,6 +156,13 @@ p {
   background-color: #1a1a1a;
 }
 
+.footerWrapper.footerExplore {
+  position: relative;
+  bottom: 0px;
+    background-color: #F40C3F;
+
+}
+
 .landingWrapper {
   margin-left: 10em;
   margin-top: 130px;
@@ -202,19 +209,7 @@ p {
   box-shadow: 1px 2px 20px #531b1b;
 }
 
-.bodyExplore {
-  width: 100%;
-  height: 100vh;
-  background-color: #1a1a1a;
-}
 
-.bodyExplore h1,p{
-  color: rgb(243, 243, 243);
-}
-
-.exploreWrapper{
-  padding: 50px;
-}
 
 /* Map Filter */
 
@@ -229,10 +224,11 @@ p {
 .mapWrapper {
   display: flex;
   justify-content: space-between;
-  width: 97%;
+  width: 100%;
   height: 90vh;
   gap: 16px;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .filter {
