@@ -1,3 +1,4 @@
+import "./Explore.css";
 const Explore = () => {
   return (
     <>
@@ -19,13 +20,8 @@ const Explore = () => {
           to build new frameworks of analysis to strengthen our collective
           defenses. A database of active conflicts can change our perception of
           reality.
-    
-        <button onClick={() => ShowMeMore(text)}> Show me more </button>{" "}
-
-      
-      
+          <button onClick={() => ShowMeMore(text)}> Show me more </button>{" "}
         </p>
-
       </div>
     </>
   );
