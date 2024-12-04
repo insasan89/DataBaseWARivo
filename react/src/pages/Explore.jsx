@@ -1,4 +1,7 @@
 import "./Explore.css";
+import PieChartComponent  from "../components/PieChartComponent";
+import BarChart from "../components/BarChart";
+import LineChartComponent from "../components/LineChart";
 const Explore = () => {
   return (
     <>
