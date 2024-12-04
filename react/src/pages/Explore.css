@@ -1,0 +1,129 @@
+.ConteinerExplore{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.conteinerCenter{
+ 
+   
+}
+.Refugees{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.PieChart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.LineChartComponent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.barWrapper {
+    width: 50%;
+    display: flex;
+}
+
+.chart-container {
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.chart {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+    position: relative;
+    padding-left: 50px;
+    border-left: 2px solid #333;
+}
+
+.chart::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: calc(100% - 50px);
+    height: 2px;
+    background: #333;
+}
+
+.y-axis {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding-top: 20px;
+    height: 300px;
+}
+
+.y-axis div {
+    position: relative;
+    left: -10px;
+    font-size: 12px;
+    color: #555;
+}
+
+.bar {
+    width: 5%;
+    background: linear-gradient(#080000, #fa0303);
+    border-radius: 4px 4px 0 0;
+    animation: grow 2s ease-in-out forwards;
+    position: relative;
+}
+
+.bar:nth-child(2n) {
+    background: linear-gradient(#000203, #ff0101);
+}
+
+.bar:nth-child(3n) {
+    background: linear-gradient(#111111, #ff0707);
+}
+
+.bar:nth-child(4n) {
+    background: linear-gradient(#0c0c0c, #f50606);
+}
+
+.bar-value {
+    position: absolute;
+    bottom: 100%;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.year-label {
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #333;
+}
+
+@keyframes grow {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: var(--height);
+    }
+        }
