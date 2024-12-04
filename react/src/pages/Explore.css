@@ -1,3 +1,30 @@
+.ConteinerExplore{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.conteinerCenter{
+ 
+   
+}
+.Refugees{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.PieChart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.LineChartComponent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
 .barWrapper {
     width: 50%;
     display: flex;
