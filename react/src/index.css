@@ -2,6 +2,7 @@
    font-family: "Sintony", sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -41,7 +42,7 @@ a:hover {
 }
 
 body {
-  margin: 0 24px;
+  margin: 0;
   min-height: 100vh;
 }
 
@@ -83,7 +84,7 @@ button:focus-visible {
 
 
 
-
+/* Landing */
 
 canvas {
   display: block;
@@ -94,12 +95,12 @@ canvas {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 24px;
 }
 
 .headerWrapper h2 {
 font-family: "Gasoek One", sans-serif;
 color: #1a1a1a;
-
 }
 
 .nav {
@@ -140,6 +141,12 @@ p {
  color: #1a1a1a;
 }
 
+.landingWrapper p {
+ font-family: "Sintony", sans-serif;
+ font-weight: 600;
+ color: #1a1a1a;
+}
+
 .footerWrapper {
   left: 0;
   bottom: -200px;
@@ -165,14 +172,51 @@ p {
   pointer-events: auto;
   visibility: visible;
   z-index: 2; /* Ensure it's above other elements */
+ box-shadow: 1px 2px 20px #e76c6c;
 }
 
-.mapWrapper{
-  display: flex;
-  width: 100%;
-  height: 90vh;
-  gap: 8px;
+
+/* Explore */
+
+.headerWrapper.headerExplore{
+  background-color: #1a1a1a;
+  margin: 0;
 }
+
+.headerWrapper.headerExplore h2{
+  color:  rgb(243, 243, 243);
+}
+
+.headerWrapper.headerExplore h3{
+  color:  rgb(243, 243, 243);
+}
+
+.headerWrapper.headerExplore button {
+  display: inline-block;
+  cursor: pointer;
+  pointer-events: auto;
+  visibility: visible;
+  background-color: rgb(243, 243, 243);
+  color: #1a1a1a;
+  z-index: 2; /* Ensure it's above other elements */
+  box-shadow: 1px 2px 20px #531b1b;
+}
+
+.bodyExplore {
+  width: 100%;
+  height: 100vh;
+  background-color: #1a1a1a;
+}
+
+.bodyExplore h1,p{
+  color: rgb(243, 243, 243);
+}
+
+.exploreWrapper{
+  padding: 50px;
+}
+
+/* Map Filter */
 
 .filter {
   background-color: white;
@@ -181,21 +225,28 @@ p {
   padding: 16px;
 }
 
+
 .mapWrapper {
   display: flex;
+  justify-content: space-between;
+  width: 97%;
   height: 90vh;
+  gap: 16px;
+  padding: 0 24px;
 }
 
 .filter {
   width: 300px;
-  padding: 20px;
-  background-color: #f8f9fa;
+  padding: 5px 20px;
+  background-color: rgb(243, 243, 243);
   border-right: 1px solid #ddd;
+  border-radius: 8px;
+
 }
 
 .filter label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.1rem;
   font-weight: bold;
 }
 
@@ -206,6 +257,12 @@ p {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  padding: 0.5rem;
+  height: 50px;
+  background-color: white;
+  color: #1a1a1a;
+  font-family: 'Sintony';
+  box-shadow: 1px 2px 20px #f1dbdb;
 }
 
 .dbBest {
@@ -226,8 +283,70 @@ p {
   background-color: #333;
 }
 
+.filterDateWrapper {
+  display: flex;
+  gap:24px
+}
 
+/* Map Result */
 
+.result{
+  position: absolute;
+  left: 45px;
+  top: 105px;
+  color: #1a1a1a;
+  z-index: 3;
+  display: flex;
+  align-items:baseline;
+  gap: 16px
+}
+.result p{
+  color: #1a1a1a;
+  z-index: 3;
+  font-size: 13px;
+}
 
+.result h3{
+  color: #1a1a1a;
+  z-index: 3;
+  font-size: 40px;
+  font-weight: 900;
+}
 
+/* Map Popup */
+
+.popup {
+  font-family: 'Sintony';
+  color: #1a1a1a;
+}
+
+.vsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 9pt;
+  margin-bottom: 0.6em;
+  border-bottom: #F40C3F solid 1px;
+}
+
+.popupDeaths {
+  font-size: 20pt;
+}
+
+.popupLine {
+display: flex;
+align-items: center;
+gap: 0.5em;
+font-size: 9pt;
+}
+
+.dandd{
+  display: flex;
+  justify-content: space-around;
+}
+
+.popupvs {
+  text-align: center;
+  font-size: 11pt;
+}
 

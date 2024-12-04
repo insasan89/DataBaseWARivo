@@ -1,15 +1,25 @@
 import React, { useState } from "react";
+import { Range } from "react-range";
 
-const Filter = ({ uniqueSidesA, uniqueSidesB, onFilterChange }) => {
+const Filter = ({
+  uniqueSidesA,
+  uniqueSidesB,
+  onFilterChange,
+  filteredConflicts,
+}) => {
   // Local filter states
+  const minDeaths = 0;
+  const maxDeaths = 163000; // Matches the slider's max value
   const [filters, setFilters] = useState({
     dateFrom: "",
     dateTo: "",
-    deathsFrom: "",
-    deathsTo: "",
+    deathsRange: [minDeaths, maxDeaths],
     sideA: "",
     sideB: "",
   });
+
+  // Generate years from 1989 to 2023
+  const years = Array.from({ length: 2023 - 1989 + 1 }, (_, i) => 1989 + i);
 
   // Handle filter input changes
   const handleFilterChange = (e) => {
@@ -21,62 +31,132 @@ const Filter = ({ uniqueSidesA, uniqueSidesB, onFilterChange }) => {
     onFilterChange(updatedFilters); // Send updates to parent
   };
 
+  const handleDeathsRangeChange = (range) => {
+    const updatedFilters = {
+      ...filters,
+      deathsRange: range,
+    };
+    setFilters(updatedFilters);
+    onFilterChange(updatedFilters); // Send updates to parent
+  };
+
   return (
     <div className="filter">
       <h2>Filter conflicts</h2>
 
+      <div className="results">
+        <p></p>
+      </div>
+
       {/* Date Filters */}
       <div>
+        <br />
+        <br /><br />
         <label>Date</label>
-        <div>
+        <div className="filterDateWrapper">
           <select name="dateFrom" onChange={handleFilterChange}>
             <option value="">From</option>
-            {[...new Set(uniqueSidesA.map((c) => c.year))]
-              .sort()
-              .map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
           <select name="dateTo" onChange={handleFilterChange}>
             <option value="">To</option>
-            {[...new Set(uniqueSidesA.map((c) => c.year))]
-              .sort()
-              .map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
           </select>
         </div>
       </div>
-
-      {/* Deaths Filters */}
-      <div className="dbBest">
+      <br />
+      {/* Deaths Filters with Slider */}
+      <div>
         <label>Deaths</label>
-        <div>
-          <input
-            type="number"
-            name="deathsFrom"
-            placeholder="From"
-            onChange={handleFilterChange}
-          />
-          <input
-            className="dbBest"
-            type="number"
-            name="deathsTo"
-            placeholder="To"
-            onChange={handleFilterChange}
+        <br />
+        <div
+          style={{
+            margin: "20px 0",
+            padding: "0 20px",
+            fontFamily: "Sintony",
+            fontWeight: "700",
+          }}
+        >
+          <Range
+            step={20} // Step value
+            min={minDeaths} // Minimum value
+            max={maxDeaths} // Maximum value
+            values={filters.deathsRange}
+            onChange={handleDeathsRangeChange}
+            renderTrack={({ props, children }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: "6px",
+                  background: "#ddd",
+                  position: "relative",
+                }}
+              >
+                {children}
+                <div
+                  style={{
+                    position: "absolute",
+                    height: "6px",
+                    background: "#F40C3F",
+                    borderRadius: "3px",
+                    left: `${
+                      ((filters.deathsRange[0] - minDeaths) /
+                        (maxDeaths - minDeaths)) *
+                      100
+                    }%`,
+                    right: `${
+                      100 -
+                      ((filters.deathsRange[1] - minDeaths) /
+                        (maxDeaths - minDeaths)) *
+                        100
+                    }%`,
+                  }}
+                />
+              </div>
+            )}
+            renderThumb={({ props, index }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: "16px",
+                  width: "16px",
+                  background: "#F40C3F",
+                  borderRadius: "50%",
+                }}
+              >
+                <span
+                  style={{
+                    position: "absolute",
+                    translate: "-10px",
+                    top: "-28px",
+                    color: "#1a1a1a",
+                    fontSize: "12px",
+                  }}
+                >
+                  {filters.deathsRange[index]}
+                </span>
+              </div>
+            )}
           />
         </div>
+        <br />
       </div>
 
       {/* Side A Filter */}
       <div>
-        <label>Side A</label>
+        <label>Governments</label>
         <select name="sideA" onChange={handleFilterChange}>
-          <option value="">Select Side A</option>
+          <option value="">Select</option>
           {uniqueSidesA.map((side) => (
             <option key={side} value={side}>
               {side}
@@ -85,11 +165,13 @@ const Filter = ({ uniqueSidesA, uniqueSidesB, onFilterChange }) => {
         </select>
       </div>
 
+      <br />
+
       {/* Side B Filter */}
       <div>
-        <label>Side B</label>
+        <label>Organizations</label>
         <select name="sideB" onChange={handleFilterChange}>
-          <option value="">Select Side B</option>
+          <option value="">Select</option>
           {uniqueSidesB.map((side) => (
             <option key={side} value={side}>
               {side}

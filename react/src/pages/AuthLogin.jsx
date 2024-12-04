@@ -18,7 +18,7 @@ const AuthLogin = () => {
             <input
               type="email"
               id="email"
-              placeholder="youremail@mail.com"
+              placeholder="Your email"
               className="form-input"
             />
           </div>
@@ -31,7 +31,7 @@ const AuthLogin = () => {
             <input
               type="password"
               id="password"
-              placeholder="password"
+              placeholder="Your password"
               className="form-input"
             />
             <Link to="/forgot-password" className="forgot-password-link">

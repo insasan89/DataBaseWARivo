@@ -12,13 +12,13 @@ const AuthSignup = () => {
         <form>
           {/* Email Input */}
           <div className="form-group">
-            <label htmlFor="email" className="form-label">
-              Email
+            <label htmlFor="name" className="form-label">
+              Name
             </label>
             <input
-              type="email"
-              id="email"
-              placeholder="Placeholder"
+              type="text"
+              id="name"
+              placeholder="Your name"
               className="form-input"
             />
           </div>
@@ -26,12 +26,12 @@ const AuthSignup = () => {
           {/* Confirm Email Input */}
           <div className="form-group">
             <label htmlFor="emailConfirm" className="form-label">
-              Confirm Email
+              Email
             </label>
             <input
               type="email"
               id="emailConfirm"
-              placeholder="Placeholder"
+              placeholder="Your email"
               className="form-input"
             />
           </div>
@@ -44,7 +44,7 @@ const AuthSignup = () => {
             <input
               type="password"
               id="password"
-              placeholder="Placeholder"
+              placeholder="Your password"
               className="form-input"
             />
             <span className="password-warning">
@@ -61,7 +61,7 @@ const AuthSignup = () => {
             <input
               type="password"
               id="repeatPassword"
-              placeholder="Placeholder"
+              placeholder=""
               className="form-input"
             />
           </div>

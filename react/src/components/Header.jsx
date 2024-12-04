@@ -1,11 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+   const isExplorePage = location.pathname === "/explore";
 
   return (
-    <div className="headerWrapper">
+    <div className={`headerWrapper ${isExplorePage ? "headerExplore" : ""}`}>
       <Link to="/">
         <h2> WarScope </h2>
       </Link>
