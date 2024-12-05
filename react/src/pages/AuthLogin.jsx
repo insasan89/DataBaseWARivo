@@ -1,7 +1,35 @@
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../Context/user";
+import { login } from "../services/authService";
 import "./Auth.css"; // Import the CSS file
 
 const AuthLogin = () => {
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+   const [error, setError] = useState("");
+
+   const { setUser, user } = useContext(UserContext);
+
+   const navigate = useNavigate();
+
+   const handleLogin = async (e) => {
+     try {
+    
+       e.preventDefault();
+       const response = await login({ email: email, password: password });
+       if (response) {
+         localStorage.setItem("token", response.data.token);
+         setUser(response.data.username);
+         navigate("/HomeMap");
+       } else {
+         setError("Check your username or password");
+       }
+     } catch (error) {
+       console.error(error.message);
+     }
+   };
   return (
     <div className="container">
       <div className="box">
@@ -20,6 +48,8 @@ const AuthLogin = () => {
               id="email"
               placeholder="Your email"
               className="form-input"
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
@@ -33,6 +63,7 @@ const AuthLogin = () => {
               id="password"
               placeholder="Your password"
               className="form-input"
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Link to="/forgot-password" className="forgot-password-link">
               Did you forget your password?
@@ -48,7 +79,7 @@ const AuthLogin = () => {
           </div>
 
           {/* Login Button */}
-          <button type="submit" className="AuthButton">
+          <button onClick={handleLogin} className="AuthButton">
             Login
           </button>
         </form>

@@ -6,6 +6,15 @@ import AuthSignup from "../pages/AuthSignup";
 import AuthLogin from "../pages/AuthLogin";
 import HomeMap from "../pages/HomeMap";
 import NotFound from "../pages/NotFound";
+import AboutUs from "../pages/AboutUs"
+
+const checkAuthLoader = () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return redirect("/");
+  }
+  return null; // No redirection, allow navigation
+};
 
 const router = createBrowserRouter([
   {
@@ -22,6 +31,10 @@ const router = createBrowserRouter([
         path: "explore",
         element: <Explore />,
       },
+       {
+        path: "aboutus",
+        element: <AboutUs />,
+      },
       {
         path: "signup",
         element: <AuthSignup />,
@@ -33,13 +46,14 @@ const router = createBrowserRouter([
       {
         path: "homeMap",
         element: <HomeMap />,
+        loader: checkAuthLoader,
       },
       {
         path: "notFound",
         element: <NotFound />,
       },
-    ],
-  },
-]);
+  ], 
+  }, 
+]); 
 
 export default router;
