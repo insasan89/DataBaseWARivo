@@ -16,6 +16,7 @@ const AuthLogin = () => {
 
    const handleLogin = async (e) => {
      try {
+    
        e.preventDefault();
        const response = await login({ email: email, password: password });
        if (response) {
@@ -48,6 +49,7 @@ const AuthLogin = () => {
               placeholder="Your email"
               className="form-input"
               onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
 
