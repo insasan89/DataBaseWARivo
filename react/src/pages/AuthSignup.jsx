@@ -135,7 +135,7 @@ const AuthSignup = () => {
         {/* Login Link */}
         <p className="prompt">
           Do you already have an account?{" "}
-          <Link to="/Explore" className="Explore-link">
+          <Link to="/login" className="login-link">
             Login
           </Link>
         </p>
