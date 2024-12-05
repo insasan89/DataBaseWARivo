@@ -1,75 +1,142 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Bar } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Title,
+} from "chart.js";
+import { useInView } from "react-intersection-observer";
+
+// Register Chart.js components
+ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Title);
 
 const BarChart = () => {
-  const [animatedData, setAnimatedData] = useState([]);
+  const [isInView, setIsInView] = useState(false);
 
-  useEffect(() => {
-    const data = [
-      { year: "2010", value: 21088 },
-      { year: "2011", value: 25079 },
-      { year: "2012", value: 74032 },
-      { year: "2013", value: 93485 },
-      { year: "2014", value: 115961 },
-      { year: "2015", value: 104169 },
-      { year: "2016", value: 90175 },
-      { year: "2017", value: 71965 },
-      { year: "2018", value: 52474 },
-      { year: "2019", value: 78635 },
-      { year: "2020", value: 199790 },
-      { year: "2021", value: 276935 },
-      { year: "2022", value: 212518 },
-      { year: "2023", value: 280556 },
-      { year: "2024", value: 310000 },
-    ];
-    const animateBars = () => {
-      const maxValue = 310000;
-      const newData = data.map((item) => ({
-        ...item,
-        height: `${(item.value / maxValue) * 100}%`,
-        displayValue: 0,
-      }));
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Trigger animation only once
+    threshold: 0.1, // Trigger when 10% of the chart is visible
+  });
 
-      setAnimatedData(newData);
+  // Update state when chart is in view
+  React.useEffect(() => {
+    if (inView) {
+      setIsInView(true);
+    }
+  }, [inView]);
 
-      const interval = setInterval(() => {
-        setAnimatedData((prevData) =>
-          prevData.map((item) => {
-            if (item.displayValue < item.value) {
-              return {
-                ...item,
-                displayValue: Math.min(
-                  item.value,
-                  item.displayValue + Math.ceil(item.value / 100)
-                ),
-              };
-            }
-            return item;
-          })
-        );
-      }, 20);
+  const years = [
+    "2010",
+    "2011",
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+  ];
 
-      return () => clearInterval(interval);
-    };
+  const values = [
+    21088, 25079, 74032, 93485, 115961, 104169, 90175, 71965, 52474, 78635,
+    199790, 276935, 212518, 280556, 310000,
+  ];
 
-    animateBars();
-  }, []);
+  const chartData = {
+    labels: years,
+    datasets: [
+      {
+        label: "Values by Year",
+        data: isInView ? values : Array(values.length).fill(0), // Animate from 0
+        backgroundColor: "rgba(244, 12, 63, 0.7)", // Bar color
+        borderColor: "#F40C3F", // Bar border color
+        borderWidth: 1, // Bar border thickness
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    animation: {
+      duration: 2000, // Duration of the animation
+      easing: "easeInOutCubic", // Animation easing function
+    },
+    plugins: {
+      tooltip: {
+        backgroundColor: "rgb(243, 243, 243)", // Tooltip background
+        titleColor: "#1a1a1a", // Tooltip title color
+        bodyColor: "#1a1a1a", // Tooltip body color
+        padding: 16,
+        boxPadding: 8,
+        usePointStyle: true,
+        titleFont: {
+          family: "Sintony",
+          size: 16,
+        },
+        bodyFont: {
+          family: "Sintony",
+          size: 12,
+        },
+      },
+      legend: {
+        labels: {
+          color: "white", // Legend text color
+          font: {
+            family: "Sintony",
+            size: 14,
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          color: "white", // X-axis label color
+          font: {
+            family: "Sintony",
+            size: 14,
+          },
+        },
+        grid: {
+          color: "rgba(255,255,255,0.1)", // X-axis grid color
+        },
+      },
+      y: {
+        ticks: {
+          color: "white", // Y-axis label color
+          font: {
+            family: "Sintony",
+            size: 14,
+          },
+        },
+        grid: {
+          color: "rgba(255,255,255,0.1)", // Y-axis grid color
+        },
+      },
+    },
+  };
 
   return (
-    <div className="chart-container">
-      <div className="y-axis">
-        {Array.from({ length: 7 }, (_, i) => {
-          const value = Math.ceil((310000 / 6) * i);
-          return <div key={i}>{value}</div>;
-        })}
-      </div>
-      <div className="chart">
-        {animatedData.map((item, index) => (
-          <div key={index} className="bar" style={{ "--height": item.height }}>
-            <div className="bar-value">{item.displayValue}</div>
-            <div className="year-label">{item.year}</div>
-          </div>
-        ))}
-      </div>
+    <div
+      ref={ref}
+      style={{
+        width: "800px",
+        height: "400px",
+        margin: "0 auto",
+        opacity: isInView ? 1 : 0,
+        transition: "opacity 1s",
+      }}
+    >
+      <Bar data={chartData} options={chartOptions} />
     </div>
   );
 };
