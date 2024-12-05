@@ -6,6 +6,13 @@ import AuthSignup from "../pages/AuthSignup";
 import AuthLogin from "../pages/AuthLogin";
 import HomeMap from "../pages/HomeMap";
 import NotFound from "../pages/NotFound";
+const checkAuthLoader = () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    return redirect("/");
+  }
+  return null; // No redirection, allow navigation
+};
 
 const router = createBrowserRouter([
   {
@@ -21,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "explore",
         element: <Explore />,
+        loader: checkAuthLoader,
       },
       {
         path: "signup",
