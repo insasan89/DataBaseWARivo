@@ -28,7 +28,6 @@ const router = createBrowserRouter([
       {
         path: "explore",
         element: <Explore />,
-        loader: checkAuthLoader,
       },
       {
         path: "signup",
@@ -41,6 +40,7 @@ const router = createBrowserRouter([
       {
         path: "homeMap",
         element: <HomeMap />,
+        loader: checkAuthLoader,
       },
       {
         path: "notFound",

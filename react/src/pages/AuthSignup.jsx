@@ -36,7 +36,7 @@ const AuthSignup = () => {
           response;
           localStorage.setItem("token", response.data.token);
           setUser(formData.username);
-          navigate("/Explore");
+          navigate("/HomeMap");
         }
       } else {
         setError("The passwords do not match");

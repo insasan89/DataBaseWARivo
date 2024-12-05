@@ -21,7 +21,7 @@ const AuthLogin = () => {
        if (response) {
          localStorage.setItem("token", response.data.token);
          setUser(response.data.username);
-         navigate("/Explore");
+         navigate("/HomeMap");
        } else {
          setError("Check your username or password");
        }
@@ -85,7 +85,7 @@ const AuthLogin = () => {
         {/* Signup Link */}
         <p className="prompt">
           Don’t you have an account?{" "}
-          <Link to="/Explore" className="Explore-link">
+          <Link to="/HomeMap" className="HomeMap-link">
             Create account
           </Link>
         </p>
