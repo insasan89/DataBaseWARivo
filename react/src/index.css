@@ -312,6 +312,9 @@ p {
   margin-bottom: 0.6em;
   border-bottom: #F40C3F solid 1px;
 }
+.vsWrapper p {
+color: #333
+}
 
 .popupDeaths {
   font-size: 20pt;
@@ -350,8 +353,11 @@ font-size: 9pt;
 .footerWrapper.footerExplore {
   position: relative;
   bottom: 0;
-  background-color: #F40C3F;
+}
 
+.footerWrapper.footerAboutUs {
+  position: relative;
+  bottom: 0;
 }
 
 .footerWrapper h2 {
@@ -389,7 +395,7 @@ font-size: 9pt;
   font-size: 10px;
 }
 
-span {
+.footerSpan {
   color: rgb(243, 243, 243);
   margin-left: 25px;
 }

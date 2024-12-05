@@ -66,6 +66,7 @@ const AuthSignup = () => {
               className="form-input"
               name="username"
               onChange={handleChangeFormData}
+              required
             />
           </div>
 
@@ -81,6 +82,7 @@ const AuthSignup = () => {
               className="form-input"
               name="email"
               onChange={handleChangeFormData}
+              required
             />
           </div>
 
@@ -96,6 +98,7 @@ const AuthSignup = () => {
               className="form-input"
               name="password"
               onChange={handleChangeFormData}
+              required
             />
             <span className="password-warning">
               Your password needs to have at least one number, one capital
