@@ -6,6 +6,7 @@ import AuthSignup from "../pages/AuthSignup";
 import AuthLogin from "../pages/AuthLogin";
 import HomeMap from "../pages/HomeMap";
 import NotFound from "../pages/NotFound";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "explore",
         element: <Explore />,
+      },
+       {
+        path: "aboutus",
+        element: <AboutUs />,
       },
       {
         path: "signup",
@@ -38,8 +43,8 @@ const router = createBrowserRouter([
         path: "notFound",
         element: <NotFound />,
       },
-    ],
-  },
-]);
+  ], 
+  }, 
+]); 
 
 export default router;

@@ -17,9 +17,13 @@ const Header = () => {
         <Link to="/explore">
           <h3>Explore</h3>
         </Link>
+        <Link to="/aboutus">
+          <h3>About Us</h3>
+        </Link>
         <Link to="/login">
           <h3>Login</h3>
         </Link>
+
         <Link to="/signup">
           <button className="primaryCTA">Signup</button>
         </Link>
