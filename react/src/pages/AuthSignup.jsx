@@ -1,7 +1,51 @@
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { signup } from "../services/authService";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../Context/user";
 import "./Auth.css"; // Import the same CSS file for both login and signup pages
 
 const AuthSignup = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const { setUser } = useContext(UserContext);
+
+  const navigate = useNavigate();
+
+  const handleChangeFormData = ({ target }) => {
+    const { name, value } = target;
+    setFormData((previousValue) => ({ ...previousValue, [name]: value }));
+  };
+  const validatePassword = () => {
+    return formData.password === confirmPassword ? true : false;
+  };
+
+  const handleSignup = async (e) => {
+    try {
+      e.preventDefault();
+      if (validatePassword()) {
+        const response = await signup(formData);
+        if (response) {
+          console.log(formData);
+          response;
+          localStorage.setItem("token", response.data.token);
+          setUser(formData.username);
+          navigate("/HomeMap");
+        }
+      } else {
+        setError("The passwords do not match");
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+
   return (
     <div className="container">
       <div className="box">
@@ -9,7 +53,7 @@ const AuthSignup = () => {
           <h1 className="logo-title">WarScope</h1>
         </Link>
         <h2 className="heading">Signup</h2>
-        <form>
+        <form onSubmit={handleSignup}>
           {/* Email Input */}
           <div className="form-group">
             <label htmlFor="name" className="form-label">
@@ -20,6 +64,8 @@ const AuthSignup = () => {
               id="name"
               placeholder="Your name"
               className="form-input"
+              name="username"
+              onChange={handleChangeFormData}
             />
           </div>
 
@@ -33,6 +79,8 @@ const AuthSignup = () => {
               id="emailConfirm"
               placeholder="Your email"
               className="form-input"
+              name="email"
+              onChange={handleChangeFormData}
             />
           </div>
 
@@ -46,6 +94,8 @@ const AuthSignup = () => {
               id="password"
               placeholder="Your password"
               className="form-input"
+              name="password"
+              onChange={handleChangeFormData}
             />
             <span className="password-warning">
               Your password needs to have at least one number, one capital
@@ -63,6 +113,7 @@ const AuthSignup = () => {
               id="repeatPassword"
               placeholder=""
               className="form-input"
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
 
