@@ -1,0 +1,23 @@
+
+
+
+
+.teamMembers {
+    justify-content: space-around;
+}
+
+.img {
+  image-rendering: auto;
+  margin: auto;
+justify-items: center;
+}
+
+ h2 {
+font-family: "Gasoek One", sans-serif;
+color: black;
+}
+
+p{
+    color: black;
+    font-size: small;
+}
