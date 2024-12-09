@@ -37,10 +37,11 @@ const AboutUs = () => {
           <img src="../../public/Binladen.webp" alt="Vicente" />
           <h2>Vicente</h2>
           <p>
-            Brillante escritor decidido a exponer la verdad oculta. Utiliza sus
+            Brillante escritor decidido a exponer la verdad oculta . Utiliza sus
             habilidades para infiltrarse en sistemas, luchando por la justicia y
             revelando lo que el poder intenta ocultar. Desde las sombras,
-            manipula códigos para asegurar que la verdad salga a la luz.
+            manipula códigos para asegurar que la verdad salga a la luz,aunque
+            peligrosa, es la única que puede iluminar la oscuridad.
           </p>
         </div>
       </div>
