@@ -1,6 +1,6 @@
+require("dotenv").config();
 const { checkConnection, syncModels } = require("./database/db");
 const User = require("./api/models/user.model");
-
 //require("dotenv").config()
 const express = require("express");
 const morgan = require("morgan");

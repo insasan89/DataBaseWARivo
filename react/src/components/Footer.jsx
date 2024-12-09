@@ -8,9 +8,14 @@ const Footer = () => {
   const location = useLocation();
 
   const isExplorePage = location.pathname === "/explore";
+  const isAboutUsPage = location.pathname === "/aboutus";
 
   return (
-    <div className={`footerWrapper ${isExplorePage ? "footerExplore" : ""}`}>
+    <div
+      className={`footerWrapper ${isExplorePage ? "footerExplore" : ""} ${
+        isAboutUsPage ? "footerAboutUs" : ""
+      }`}
+    >
       <h2>WarScope</h2>
       <div className="footerText">
         <div className="footerOne">
@@ -42,7 +47,7 @@ const Footer = () => {
         </div>
 
         <div className="footerFour">
-          <span> Follow us </span>
+          <span className="footerSpan"> Follow us </span>
           <br></br>
           <a href="#">
             <img

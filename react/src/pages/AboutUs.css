@@ -1,23 +1,48 @@
+.teamTitle {
+    display: flex;
+    justify-content: center;
 
-
-
+}
 
 .teamMembers {
-    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-top: 60px;
+    margin-bottom: 300px;
+    padding: 24px;
+    gap: 48px;
 }
 
-.img {
-  image-rendering: auto;
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    padding: 24px;
+  background-color: rgb(243, 243, 243);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.member img {
+object-fit: cover;
   margin: auto;
-justify-items: center;
+  width: 200px;
+  height:200px;
+  border-radius: 16px;
+
 }
 
- h2 {
+.member h2 {
 font-family: "Gasoek One", sans-serif;
-color: black;
+color: #1a1a1a;
 }
 
-p{
-    color: black;
-    font-size: small;
+.member p{
+    color: #1a1a1a;
+    font-size: 12pt;
+    font-weight: 700;
+    text-align: center;
 }

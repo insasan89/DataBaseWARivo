@@ -1,11 +1,11 @@
 const { Sequelize } = require("sequelize");
 
-const connection = new Sequelize("restAPIDB", "vicente", "password", {
-  host: "localhost",
-  dialect: "mysql",
-  port: 3306,
-  logging: false,
-});
+const connection = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+    host: process.env.DB_HOST,
+    dialect: "mysql",
+    port: process.env.DB_PORT,
+    logging: false,
+})
 
 const checkConnection = async () => {
   try {
